@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MDB93 Scalping Bot</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <!-- Lightweight Charts by TradingView -->
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  <div class="bar">
+    <div><b>MDB93 Scalping Bot</b></div>
+    <div id="mode">Modalità: ...</div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="row">
+        <div>Saldo USDT: <span id="free_usdt">...</span></div>
+        <div>Profitto oggi: <span id="pnl_today">...</span></div>
+      </div>
+      <div class="row">
+        <div>Simbolo: <span id="symbol">BTC/USDT</span></div>
+        <div>Prezzo: <span id="price">...</span></div>
+      </div>
+      <div class="row">
+        <div>Stake: <input id="stake" type="number" step="0.01" min="0" style="width:100px"> <button id="btnStake">Aggiorna</button></div>
+        <div>TP/SL: <input id="tp" type="number" step="0.0001" style="width:80px"> / <input id="sl" type="number" step="0.0001" style="width:80px"> <button id="btnTPSL">Aggiorna</button></div>
+      </div>
+      <div class="row">
+        <select id="pair">
+          <option>BTCUSDT</option>
+          <option>ETHUSDT</option>
+          <option>SOLUSDT</option>
+        </select>
+        <button id="btnPair">Cambia Coppia</button>
+      </div>
+      <div class="row">
+        <button id="btnStart">▶ Avvia</button>
+        <button id="btnStop">⏹ Ferma</button>
+        <button id="btnDemo">Demo</button>
+        <button id="btnReal">Reale</button>
+      </div>
+      <div class="row">
+        <div>Trade evitati (EMA): <span id="avoided">0</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div id="chart" style="height: 360px;"></div>
+    </div>
+
+    <div class="card">
+      <h3>Ultimi trade</h3>
+      <table id="trades"><thead><tr><th>Ora (UTC)</th><th>Symbol</th><th>Lato</th><th>Prezzo</th><th>Qty</th><th>PNL</th></tr></thead><tbody></tbody></table>
+    </div>
+
+    <div class="card">
+      <h3>Storico profitti per coppia (oggi)</h3>
+      <table id="pnlBySymbol"><thead><tr><th>Coppia</th><th>PNL USDT</th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
